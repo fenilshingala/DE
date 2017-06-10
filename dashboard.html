@@ -99,10 +99,10 @@
                     Dashboard
                 </li>
                 <li>
-                    <a href="#">Latest updates</a>
+                    <a href="#" onclick="loadDoc()">Latest Updates</button>
                 </li>
                 <li>
-                    <a href="#">Submissions</a>
+                    <a href="#" onclick="loadDoc()">Submissions</a>
                 </li>
                 <li>
                     <a href="#">Discussions</a>
@@ -128,7 +128,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Content here</h1>
+                        <div id="my_content"></div>
                     </div>
                 </div>
             </div>
@@ -140,9 +140,9 @@
 
     <footer class="bg-primary">
         <center>
+        &copy;Phoenix 2017&nbsp;&nbsp;&nbsp;
         <a href="">About us</a>&nbsp;&nbsp;&nbsp;
-        <a href="">XYZ</a>&nbsp;&nbsp;&nbsp;
-        &copy;Phoenix 2017
+        <a href="">XYZ</a>
         </center>
     </footer>
 
@@ -151,6 +151,18 @@
 
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("my_content").innerHTML = this.responseText;
+           }
+       };
+       xhttp.open("GET", "updates.html", true);
+       xhttp.send();
+    }
+</script>
 
 </body>
 
