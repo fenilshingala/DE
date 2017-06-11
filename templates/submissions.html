@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+		<style>
+			.my_badge {
+			  display: inline-block;
+			  min-width: 10px;
+			  padding: 3px 7px;
+			  font-size: 12px;
+			  font-weight: bold;
+			  line-height: 1;
+			  color: #fff;
+			  text-align: center;
+			  white-space: nowrap;
+			  vertical-align: middle;
+			  background-color: #777;
+			  border-radius: 10px;
+			  float:right;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+		  <div class = "panel panel-default">
+		      
+		      <div class = "panel-heading">
+		         <h4 class = "panel-title">
+		            <a data-toggle = "collapse" data-parent = "#accordion" href="#" onclick="coll('CPP')">
+		               C++ <div class="my_badge">2</div>
+		            </a>
+		         </h4>
+		      </div>
+		      
+		      <div id = "CPP" class = "panel-collapse collapse">
+		         <div class = "panel-body">
+		              <div class="panel panel-default">
+
+		                <div class="panel-body"><a href="#">Problem 1</a><span class="glyphicon glyphicon-ok" style="color: #5CB85C;" aria-hidden="true"></span>
+		                  <div class="alert alert-success" role="alert">Done!</div>
+		                </div>
+		                <div class="panel-body"><a href="#">Problem 2</a><span class="glyphicon glyphicon-exclamation-sign" style="color: red;"aria-hidden="true"></span>
+		                  <div class="alert alert-danger" role="alert">Due tomorrow.</div>
+		                </div>
+		                <div class="panel-body"><a href="#">Problem 3</a><span class="" aria-hidden="true"></span>
+		                  <div class="alert alert-info" role="alert">Due date: </div>
+		                </div>
+
+		              </div>
+		         </div>
+		      </div>
+		      
+		   </div>
+		   
+		   <div class = "panel panel-default">
+		      
+		      <div class = "panel-heading">
+		         <h4 class = "panel-title">
+		            <a data-toggle = "collapse" data-parent = "#accordion" href="#" onclick="coll('Java')">
+		               Java
+		            </a>
+		         </h4>
+		      </div>
+		      
+		      <div id = "Java" class = "panel-collapse collapse">
+		         <div class = "panel-body">
+		              <div class="panel panel-default">
+
+		                <div class="panel-body"><a href="#">Problem 1</a><span class="glyphicon glyphicon-ok" style="color: #5CB85C;" aria-hidden="true"></span>
+		                  <div class="alert alert-success" role="alert">Done!</div>
+		                </div>
+		                <div class="panel-body"><a href="#">Problem 2</a><span class="glyphicon glyphicon-exclamation-sign" style="color: red;"aria-hidden="true"></span>
+		                  <div class="alert alert-danger" role="alert">Due tomorrow.</div>
+		                </div>
+		                <div class="panel-body"><a href="#">Problem 3</a><span class="" aria-hidden="true"></span>
+		                  <div class="alert alert-info" role="alert">Due date: </div>
+		                </div>
+
+		              </div>
+		         </div>
+		      </div>
+		      
+		   </div>
+		</div>
+
+	</body>
+</html>

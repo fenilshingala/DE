@@ -1,68 +1,30 @@
 <html>
 <head>
 	<title>Login/Register</title>
-	<link rel="stylesheet" href="/static/css/index.css">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="/static/bootstrap/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="/static/bootstrap/bootstrap-theme.min.css">
+	    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+    <script> 
+    $(function(){
+      $("#head").load("header");
+      $("#foot").load("footer");
+    });
+    </script>
 </head>
 
 <body>
 
 	<!-- header -->
-	<div class="container navbar-inverse navbar-fixed-top" id="header">
-
-		<nav>
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" id="brand" href="#">Phoenix</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Link</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-
-	</div>
+	<div id="head"></div>
 	<!-- header -->
 
+	<!-- container -->
 	<div class="container">
+		<!-- login -->
 		<div id="loginbox" style="margin-top:150px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info" >
 				<div class="panel-heading">
@@ -71,9 +33,7 @@
 				</div>
 
 				<div style="padding-top:30px" class="panel-body" >
-
 					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
 					<form id="loginform" class="form-horizontal" role="form">
 
 						<div style="margin-bottom: 25px" class="input-group">
@@ -98,8 +58,6 @@
 
 
 						<div style="margin-top:10px" class="form-group">
-							<!-- Button -->
-
 							<div class="col-sm-12 controls">
 								<a id="btn-login" href="#" class="btn btn-success col-md-3	">Login  </a>
 							</div>
@@ -116,14 +74,14 @@
 								</div>
 							</div>
 						</div>
+
 					</form>
-
-
-
 				</div>
 			</div>
 		</div>
+		<!-- /login -->
 
+		<!-- signup -->
 		<div id="signupbox" style="display:none; margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
@@ -184,17 +142,18 @@
 				</div>
 			</div>
 		</div>
+		<!-- /signup -->
 	</div>
+	<!-- /container -->
 
-	<footer class="bg-primary">
-		<center>
-			<a href="">About us</a>&nbsp;&nbsp;&nbsp;
-			<a href="">XYZ</a>&nbsp;&nbsp;&nbsp;
-			&copy;Phoenix 2017
-		</center>
-	</footer>
+	<!-- footer -->
+    <div id="foot"></div>
+    <!-- /footer -->
 
-	<script src="/static/js/jQuery.js"></script>
+	<!-- custom JS -->
 	<script src="/static/js/index.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/static/bootstrap/js/bootstrap.js"></script>
+  	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
