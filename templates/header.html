@@ -19,6 +19,14 @@
         .brand > img {
           display: block;
         }
+        .user{
+            color: #337ab7;
+/*             float: left; */
+            height: 20px;
+/*             padding: 15px 15px; */
+            font-size: 20px;
+            line-height: 20px;
+        }
     </style>
 </head>
 
@@ -43,7 +51,7 @@
             <li><a href="#contact">Contact</a>
             </li>
             {% if session %}
-                <li><a href="#"> Hello {{session["enrl"]}}</a> </li>
+                <li class="user">Hello {{session["enrl"]}}</li>
                 <li><a href="/signout"> Signout </a></li>
             {% endif %}
           </ul>
