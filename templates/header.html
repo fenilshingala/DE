@@ -21,9 +21,9 @@
         }
         .user{
             color: #337ab7;
-/*             float: left; */
+            float: left;
             height: 20px;
-/*             padding: 15px 15px; */
+            padding: 15px 15px;
             font-size: 20px;
             line-height: 20px;
         }
@@ -52,7 +52,23 @@
             </li>
             {% if session %}
                 <li class="user">Hello {{session["enrl"]}}</li>
-                <li><a href="/signout"> Signout </a></li>
+
+                <!-- Gear dropdown -->
+                <div class="dropdown" style="padding:10px;">
+                  <button id="dLabel" type="button" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-cog"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li class="dropdown-header">My Profile</li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/signout">Sign out</a></li>
+                </ul>
+                </div>
+                <!-- /Gear dropdown -->
             {% endif %}
           </ul>
       </div>
