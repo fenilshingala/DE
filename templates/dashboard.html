@@ -12,18 +12,12 @@
 
     <!-- jQuery -->
     <script type='text/javascript' src="/static/js/jquery.js"></script>
-    <script> 
-    $(function(){
-      $("#head").load("header"); 
-      $("#foot").load("footer");
-    });
-    </script> 
 </head>
 
 <body>
 
     <!-- header -->
-    <div id="head"></div>
+    {% include "header.html" %}
     <!-- header -->
 
 
@@ -83,7 +77,7 @@
     <!-- /wrapper -->
 
     <!-- footer -->
-    <div id="foot"></div>
+    {% include "footer.html" %}
     <!-- /footer -->
 
     <!-- custom JS -->
