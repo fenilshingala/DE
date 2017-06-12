@@ -42,23 +42,10 @@
             </li>
             <li><a href="#contact">Contact</a>
             </li>
-            <li>
-                <!-- Split button -->
-                <div class="dropdown" style="padding:10px;">
-                  <button id="dLabel" type="button" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-cog"></span>
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dLabel">
-                    <li class="dropdown-header">My Profile</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>    
-                </ul>
-                </div>
-            </li>
+            {% if session %}
+                <li><a href="#"> Hello {{session["enrl"]}}</a> </li>
+                <li><a href="/signout"> Signout </a></li>
+            {% endif %}
           </ul>
       </div>
     <!--/.nav-collapse -->
