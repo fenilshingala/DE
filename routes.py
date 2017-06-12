@@ -5,38 +5,45 @@ client = MongoClient()
 db = client["DE"]
 app = Flask(__name__)
 
+def loggedin():
+    return 'enrl' in session
 
 @app.route('/')
 def index():
+    if loggedin():
+        return redirect(url_for("dashboard"))
     return render_template("index.html")
 
 @app.route('/dashboard/')
 def dashboard():
+    if not loggedin():
+        return redirect(url_for("index"))
     return render_template("dashboard.html")
 
 @app.route('/login/', methods=["GET","POST"])
 def login():
+    if loggedin():
+        return redirect(url_for("dashboard"))
     if request.method=="POST":
         users = db["users"]
-        user=request.form["enrl"]
-        u=users.find_one({"enrl":user})
+        enrl=request.form["enrl"]
+        u=users.find_one({"enrl":enrl})
         if u is None:
-            print("User not found!")
             return render_template("index.html", error="User not found. Please sign up first")
         else:
             password=request.form["password"]
-            print(user, password)
-            print(u["password"])
             if u["password"]!=password:
-                print("here1")
                 return render_template("index.html", error="Wrong password")
-            print("acc")
+            session['enrl']=enrl
+            print("here")
             return redirect(url_for("dashboard"))
     else:
         return redirect(url_for("index"))
 
 @app.route('/signup/', methods=["GET", "POST"])
 def signup():
+    if loggedin():
+        return redirect(url_for("dashboard"))
     if request.method=="POST":
         data={}
         users = db["users"]
@@ -51,16 +58,20 @@ def signup():
     else:
         return redirect(url_for("index"))
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/signout/')
+def signout():
+    session.pop('enrl', None)
+    return redirect(url_for("index"))
 
-@app.route('/submissions')
+@app.route('/submissions/')
 def submissions():
     return render_template("submissions.html")
 
-@app.route('/updates')
+@app.route('/updates/')
 def updates():
     return render_template("updates.html")
 
 if __name__ == '__main__':
-    app.run()
+    app.secret_key = 'secret key'
+    app.config['SESSION_TYPE'] = 'filesystem'
+    app.run(debug=True)
