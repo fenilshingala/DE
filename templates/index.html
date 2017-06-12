@@ -5,62 +5,15 @@
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link href="/static/css/dashboard.css" rel="stylesheet">
-    
+
     <!-- jQuery -->
     <script src="/static/js/jquery.js"></script>
-    <script> 
-    $(function(){
-      $("#head").load("header");
-      $("#foot").load("footer");
-    });
-    </script>
 </head>
 
 <body>
 
 	<!-- header -->
-<<<<<<< HEAD
-	<div class="container navbar-inverse navbar-fixed-top" id="header">
-
-		<nav>
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" id="brand" href="#">Phoenix</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="{{ url_for('dashboard') }}">Dashboard</a>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-
-	</div>
-=======
-	<div id="head"></div>
->>>>>>> ec39e333a02654884dd6aee52c9e43b7294336ac
+	{% include "header.html" %}
 	<!-- header -->
 
 	<!-- container -->
@@ -75,12 +28,8 @@
 
 				<div style="padding-top:30px" class="panel-body" >
 					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-<<<<<<< HEAD
 
 					<form id="loginform" action="{{ url_for('login') }}" method="post">
-=======
-					<form id="loginform" class="form-horizontal" role="form">
->>>>>>> ec39e333a02654884dd6aee52c9e43b7294336ac
 
 						<div style="margin-bottom: 25px" class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -104,15 +53,9 @@
 
 
 						<div style="margin-top:10px" class="form-group">
-<<<<<<< HEAD
 							<!-- Button -->
 
 							<input type="submit" value="Login" id="btn-login" class="btn btn-success col-md-3"/>
-=======
-							<div class="col-sm-12 controls">
-								<a id="btn-login" href="#" class="btn btn-success col-md-3	">Login  </a>
-							</div>
->>>>>>> ec39e333a02654884dd6aee52c9e43b7294336ac
 						</div>
 
 
@@ -120,7 +63,7 @@
 							<div class="col-md-12 control">
 								<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
 									Don't have an account!
-									<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+									<a href="#" onClick="$('.loginbox').hide(); $('.signupbox').show()">
 										Sign Up Here
 									</a>
 								</div>
@@ -147,8 +90,6 @@
 							<p>Error:</p>
 							<span></span>
 						</div>
-
-
 
 						<div class="form-group">
 							<label for="email" class="col-md-3 control-label">Email</label>
@@ -177,7 +118,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="enrl" class="col-md-3 control-label">Enrolment No</label>
+							<label for="enrl" class="col-md-3 control-label">Enrollment No</label>
 							<div class="col-md-9">
 								<input type="text" class="form-control" name="enrl" placeholder="Enrollment No">
 							</div>
@@ -197,7 +138,7 @@
 	<!-- /container -->
 
 	<!-- footer -->
-    <div id="foot"></div>
+    {% include "footer.html" %}
     <!-- /footer -->
 
 	<!-- custom JS -->
