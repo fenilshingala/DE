@@ -32,17 +32,7 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
 						<li><a href="#">Link</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
+						<li><a href="{{ url_for('dashboard') }}">Dashboard</a>
 						</li>
 					</ul>
 					<form class="navbar-form navbar-left" role="search">
@@ -74,11 +64,11 @@
 
 					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-					<form id="loginform" class="form-horizontal" role="form">
+					<form id="loginform" action="{{ url_for('login') }}" method="post">
 
 						<div style="margin-bottom: 25px" class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="enrl no">
+							<input id="login-username" type="text" class="form-control" name="enrl" placeholder="enrl no">
 						</div>
 
 						<div style="margin-bottom: 25px" class="input-group">
@@ -100,9 +90,7 @@
 						<div style="margin-top:10px" class="form-group">
 							<!-- Button -->
 
-							<div class="col-sm-12 controls">
-								<a id="btn-login" href="#" class="btn btn-success col-md-3	">Login  </a>
-							</div>
+							<input type="submit" value="Login" id="btn-login" class="btn btn-success col-md-3"/>
 						</div>
 
 
@@ -131,7 +119,7 @@
 					<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
 				</div>
 				<div class="panel-body" >
-					<form id="signupform" class="form-horizontal" role="form">
+					<form id="signupform" class="form-horizontal" role="form" action="{{ url_for('signup') }}" method="post">
 
 						<div id="signupalert" style="display:none" class="alert alert-danger">
 							<p>Error:</p>
@@ -162,22 +150,20 @@
 						<div class="form-group">
 							<label for="password" class="col-md-3 control-label">Password</label>
 							<div class="col-md-9">
-								<input type="password" class="form-control" name="passwd" placeholder="Password">
+								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="enrl" class="col-md-3 control-label">Enrolment No</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="enrl" placeholder="Enrolment No">
+								<input type="text" class="form-control" name="enrl" placeholder="Enrollment No">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<!-- Button -->
-							<div class="col-md-offset-3 col-md-9">
-								<button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp; Sign Up</button>
-							</div>
+							<input type="submit" value="Signup" id="btn-login" class="btn btn-success col-md-3"/>
 						</div>
 
 					</form>
