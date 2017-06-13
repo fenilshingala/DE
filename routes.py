@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, request, session
+from flask import *
 from pymongo import MongoClient
 from datetime import timedelta
 client = MongoClient()
@@ -17,14 +17,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/dashboard')
-def dashboard():
-    if not loggedin():
-        return redirect(url_for("index"))
-    print(session["enrl"])
-    return render_template("dashboard.html",session=session)
-
-
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if loggedin():
@@ -34,11 +26,13 @@ def login():
         enrl = request.form["enrl"]
         u = users.find_one({"enrl": enrl})
         if u is None:
-            return render_template("index.html", error="User not found. Please sign up first")
+            flash("User not found. Please sign up first")
+            return redirect(url_for("index"))
         else:
             password = request.form["password"]
             if u["password"] != password:
-                return render_template("index.html", error="Wrong password")
+                flash("Wrong password")
+                return render_template("index.html")
             session['enrl'] = enrl
             return redirect(url_for("dashboard"))
     else:
@@ -63,16 +57,25 @@ def signup():
     else:
         return redirect(url_for("index"))
 
+@app.route('/dashboard')
+def dashboard():
+    if not loggedin():
+        flash("You must first login")
+        return redirect(url_for("index"))
+    print(session["enrl"])
+    return render_template("dashboard.html",session=session)
 
 @app.route('/signout/')
 def signout():
     session.pop('enrl', None)
+    flash("You've been logged out!")
     return redirect(url_for("index"))
 
 
 @app.route('/submissions/')
 def submissions():
     if not loggedin():
+        flash("You must first login")
         return redirect(url_for("index"))
     return render_template("submissions.html")
 
@@ -80,6 +83,7 @@ def submissions():
 @app.route('/updates/')
 def updates():
     if not loggedin():
+        flash("You must first login")
         return redirect(url_for("index"))
     return render_template("updates.html")
 
